@@ -110,5 +110,42 @@
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <script>
+  // Function to get query parameters
+  function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+  }
+
+  // Get name from URL
+  const name = getQueryParam("name");
+
+  if (name) {
+      // Create greeting message
+      const greeting = document.createElement("div");
+      greeting.style.position = "fixed";
+      greeting.style.top = "0";
+      greeting.style.left = "0";
+      greeting.style.width = "100%";
+      greeting.style.height = "100%";
+      greeting.style.background = "white";
+      greeting.style.display = "flex";
+      greeting.style.flexDirection = "column";
+      greeting.style.alignItems = "center";
+      greeting.style.justifyContent = "center";
+      greeting.style.fontSize = "28px";
+      greeting.style.fontWeight = "bold";
+      greeting.innerText = `Good Morning ${name} garu 🌸`;
+
+      document.body.appendChild(greeting);
+
+      // Hide greeting after 3 seconds
+      setTimeout(() => {
+          greeting.remove();
+      }, 3000);
+  }
+</script>
+
 </body>
 </html>
+
